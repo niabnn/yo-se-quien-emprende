@@ -1,0 +1,145 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.98 0.03 330); /* rosa pastel muy claro */
+  --foreground: oklch(0.25 0.02 330); /* texto suave oscuro */
+  
+  --card: oklch(1 0.02 330); /* blanco con toque rosado */
+  --card-foreground: oklch(0.25 0.02 330);
+
+  --popover: oklch(1 0.02 330);
+  --popover-foreground: oklch(0.25 0.02 330);
+
+  --primary: oklch(0.93 0.12 340); /* rosa chicle suave */
+  --primary-foreground: oklch(1 0 0);
+
+  --secondary: oklch(0.94 0.08 300); /* lavanda pastel */
+  --secondary-foreground: oklch(0.25 0.02 330);
+
+  --muted: oklch(0.96 0.04 330); /* rosa muy claro */
+  --muted-foreground: oklch(0.5 0.03 330);
+
+  --accent: oklch(0.92 0.1 70); /* amarillo melocotón pastel */
+  --accent-foreground: oklch(0.25 0.02 330);
+
+  --destructive: oklch(0.88 0.12 20); /* coral pastel */
+  --destructive-foreground: oklch(0.25 0.02 330);
+
+  --border: oklch(0.92 0.02 330);
+  --input: oklch(0.92 0.02 330);
+  --ring: oklch(0.88 0.1 320); /* rosa anillo suave */
+
+  --chart-1: oklch(0.93 0.12 340); /* rosa */
+  --chart-2: oklch(0.9 0.08 180); /* menta pastel */
+  --chart-3: oklch(0.94 0.08 300); /* lavanda */
+  --chart-4: oklch(0.92 0.1 70); /* melocotón */
+  --chart-5: oklch(0.88 0.12 20); /* coral suave */
+
+  --radius: 0.625rem;
+
+  --sidebar: oklch(0.98 0.03 330);
+  --sidebar-foreground: oklch(0.25 0.02 330);
+  --sidebar-primary: oklch(0.93 0.12 340);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.94 0.08 300);
+  --sidebar-accent-foreground: oklch(0.25 0.02 330);
+  --sidebar-border: oklch(0.92 0.02 330);
+  --sidebar-ring: oklch(0.88 0.1 320);
+}
+
+
+.dark {
+  --background: oklch(0.22 0.04 330); /* rosa oscuro apagado */
+  --foreground: oklch(0.96 0.03 330); /* texto claro rosado */
+
+  --card: oklch(0.23 0.04 330);
+  --card-foreground: oklch(0.96 0.03 330);
+
+  --popover: oklch(0.23 0.04 330);
+  --popover-foreground: oklch(0.96 0.03 330);
+
+  --primary: oklch(0.88 0.1 340); /* rosa pastel brillante sobre fondo oscuro */
+  --primary-foreground: oklch(0.22 0.04 330);
+
+  --secondary: oklch(0.32 0.05 300); /* lavanda oscuro pastel */
+  --secondary-foreground: oklch(0.96 0.03 330);
+
+  --muted: oklch(0.28 0.04 330); /* rosa empolvado oscuro */
+  --muted-foreground: oklch(0.78 0.05 330);
+
+  --accent: oklch(0.35 0.07 70); /* melocotón oscuro pastel */
+  --accent-foreground: oklch(0.96 0.03 330);
+
+  --destructive: oklch(0.45 0.1 20); /* coral profundo */
+  --destructive-foreground: oklch(0.96 0.03 330);
+
+  --border: oklch(0.3 0.03 330);
+  --input: oklch(0.3 0.03 330);
+  --ring: oklch(0.42 0.05 320); /* rosa anillo suave oscuro */
+
+  --chart-1: oklch(0.88 0.1 340); /* rosa pastel brillante */
+  --chart-2: oklch(0.78 0.08 180); /* menta pastel */
+  --chart-3: oklch(0.8 0.08 300); /* lavanda */
+  --chart-4: oklch(0.85 0.1 70); /* melocotón pastel */
+  --chart-5: oklch(0.75 0.1 20); /* coral suave */
+
+  --sidebar: oklch(0.24 0.04 330);
+  --sidebar-foreground: oklch(0.96 0.03 330);
+  --sidebar-primary: oklch(0.88 0.1 340);
+  --sidebar-primary-foreground: oklch(0.22 0.04 330);
+  --sidebar-accent: oklch(0.32 0.05 300);
+  --sidebar-accent-foreground: oklch(0.96 0.03 330);
+  --sidebar-border: oklch(0.3 0.03 330);
+  --sidebar-ring: oklch(0.42 0.05 320);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
