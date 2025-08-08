@@ -4,6 +4,103 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+--font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+--color-red-50: oklch(97.5% 0.015 350);
+--color-red-300: oklch(85% 0.09 350);
+--color-red-400: oklch(75% 0.14 350);
+--color-red-600: oklch(60% 0.2 350);
+--color-red-900: oklch(40% 0.15 350);
+
+--color-orange-100: oklch(95% 0.04 350);
+--color-orange-600: oklch(62% 0.19 350);
+
+--color-yellow-100: oklch(97% 0.06 350);
+--color-yellow-800: oklch(48% 0.14 350);
+
+--color-green-50: oklch(98% 0.02 350);
+--color-green-100: oklch(96% 0.05 350);
+--color-green-600: oklch(63% 0.19 350);
+--color-green-800: oklch(45% 0.13 350);
+
+--color-blue-50: oklch(97% 0.015 350);
+--color-blue-100: oklch(93% 0.03 350);
+--color-blue-400: oklch(71% 0.16 350);
+--color-blue-600: oklch(55% 0.23 350);
+--color-blue-700: oklch(49% 0.22 350);
+
+--color-purple-50: oklch(97.7% 0.015 350);
+--color-purple-100: oklch(94.6% 0.03 350);
+--color-purple-200: oklch(90.2% 0.06 350);
+--color-purple-400: oklch(71% 0.2 350);
+--color-purple-500: oklch(63% 0.26 350);
+--color-purple-600: oklch(56% 0.28 350);
+--color-purple-700: oklch(50% 0.26 350);
+--color-purple-800: oklch(44% 0.21 350);
+--color-purple-900: oklch(38% 0.17 350);
+
+    --color-gray-50: oklch(98.5% 0.002 247.839);
+    --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-300: oklch(87.2% 0.01 258.338);
+    --color-gray-400: oklch(70.7% 0.022 261.325);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-800: oklch(27.8% 0.033 256.848);
+    --color-gray-900: oklch(21% 0.034 264.665);
+    --color-black: #000;
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-sm: 24rem;
+    --container-md: 28rem;
+    --container-lg: 32rem;
+    --container-2xl: 42rem;
+    --container-3xl: 48rem;
+    --container-7xl: 80rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --text-6xl: 3.75rem;
+    --text-6xl--line-height: 1;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --tracking-tight: -0.025em;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+    --leading-relaxed: 1.625;
+    --radius-xs: 0.125rem;
+    --radius-2xl: 1rem;
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --blur-sm: 8px;
+    --blur-md: 12px;
+    --aspect-video: 16 / 9;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+    --color-border: var(--border);
+
+
   --background: oklch(0.98 0.03 330); /* rosa pastel muy claro */
   --foreground: oklch(0.25 0.02 330); /* texto suave oscuro */
   
