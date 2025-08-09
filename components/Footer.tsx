@@ -46,11 +46,6 @@ export default function Footer() {
                   Estadísticas
                 </a>
               </li>
-              <li>
-                <a href="/dashboard" className="text-gray-300 hover:text-white transition-colors">
-                  Mi Panel
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -60,7 +55,7 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center">
                 <Phone className="h-5 w-5 text-purple-400 mr-3" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300">+57 300 000 000</span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-purple-400 mr-3" />
@@ -78,7 +73,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
             © 2024 Yo sé quién, emprende. Todos los derechos reservados. Desarrollado con ❤️ para la comunidad
-            emprendedora.
+            emprendedora gracias a Talento Tech Medellin.
           </p>
         </div>
       </div>

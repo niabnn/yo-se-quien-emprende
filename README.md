@@ -55,11 +55,17 @@ Actualmente, la aplicación cuenta con:
 ---
 
 ## 📷 Capturas de Pantalla
-*(Incluir aquí imágenes de la aplicación con `![Descripción](ruta_de_imagen)`)*
+**Vista de inicio de sesión**  
+![Vista de inicio de sesión](https://i.imgur.com/sprpF6U.png)
 
+**Vista de registro**  
+![Vista de registro](https://i.imgur.com/GN0jnWk.png)
+
+**Vista de emprendimientos**  
+![Vista de emprendimientos](https://i.imgur.com/xvjlDJB.png)
 ---
 
 ## 📂 Instalación y Uso
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/usuario/repositorio.git
+   git clone https://github.com/niabnn/yo-se-quien-emprende.git
