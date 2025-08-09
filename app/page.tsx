@@ -1,74 +1,62 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import CardEmprendimiento from "../components/CardEmprendimiento";
-import { Search, Users, TrendingUp, Star } from "lucide-react";
 import EstadisticasDestacadas from "@/components/EstadisticasDestacadas";
 import Filtros from "@/components/Filtros";
 import ListaEmprendimientos from "@/components/ListaEmprendimientos";
 
-const emprendimientos = [
-  {
-    id: 1,
-    nombre: "Café Artesanal Luna",
-    descripcion:
-      "Café de especialidad tostado localmente con granos orgánicos de la región.",
-    imagen: "/placeholder.svg?height=200&width=300",
-    ubicacion: "Centro Histórico",
-    categoria: "Gastronomía",
-  },
-  {
-    id: 2,
-    nombre: "Textiles Andinos",
-    descripcion:
-      "Ropa y accesorios tejidos a mano con técnicas tradicionales ancestrales.",
-    imagen: "/placeholder.svg?height=200&width=300",
-    ubicacion: "Zona Norte",
-    categoria: "Artesanías",
-  },
-  {
-    id: 3,
-    nombre: "EcoVerde Plantas",
-    descripcion:
-      "Vivero especializado en plantas nativas y sistemas de jardinería sostenible.",
-    imagen: "/placeholder.svg?height=200&width=300",
-    ubicacion: "Zona Sur",
-    categoria: "Agricultura",
-  },
-  {
-    id: 4,
-    nombre: "Tech Solutions",
-    descripcion:
-      "Desarrollo de aplicaciones móviles y soluciones digitales para pequeñas empresas.",
-    imagen: "/placeholder.svg?height=200&width=300",
-    ubicacion: "Zona Empresarial",
-    categoria: "Tecnología",
-  },
-  {
-    id: 5,
-    nombre: "Panadería Tradicional",
-    descripcion:
-      "Pan artesanal horneado diariamente con recetas familiares de tres generaciones.",
-    imagen: "/placeholder.svg?height=200&width=300",
-    ubicacion: "Centro Histórico",
-    categoria: "Gastronomía",
-  },
-  {
-    id: 6,
-    nombre: "Moda Sostenible",
-    descripcion:
-      "Ropa eco-friendly diseñada y producida con materiales reciclados y orgánicos.",
-    imagen: "/placeholder.svg?height=200&width=300",
-    ubicacion: "Zona Norte",
-    categoria: "Moda",
-  },
-];
+type Emprendimiento = {
+  id: number | string;
+  nombre: string;
+  descripcion: string;
+  imagen: string;
+  ubicacion: string;
+  categoria: string;
+};
 
 export default function Home() {
+  const [emprendimientos, setEmprendimientos] = useState<Emprendimiento[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
   const [categoriaFiltro, setCategoriaFiltro] = useState("all");
   const [ubicacionFiltro, setUbicacionFiltro] = useState("all");
+
+  useEffect(() => {
+  const fetchEmpr = async () => {
+    try {
+      const res = await fetch("/api");
+
+      if (!res.ok) {
+        const text = await res.text(); // Captura la respuesta de error del servidor
+        throw new Error(`Error al cargar emprendimientos: ${res.status} - ${text}`);
+      }
+
+      const data = await res.json();
+
+      // Normalizar datos para evitar undefined
+      const normalizados: Emprendimiento[] = data.map((emp: any) => ({
+        id: emp.id, // puede ser number o string
+        nombre: emp.nombre ?? "",
+        descripcion: emp.descripcion ?? "",
+        imagen: emp.imagen ?? "/placeholder.svg?height=200&width=300",
+        ubicacion: emp.ubicacion ?? "",
+        categoria: emp.categoria ?? "",
+      }));
+
+      setEmprendimientos(normalizados);
+    } catch (err: any) {
+      console.error("Error al obtener emprendimientos:", err);
+      setError(err.message || "Error desconocido");
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchEmpr();
+}, []);
+
 
   const emprendimientosFiltrados = emprendimientos.filter((emp) => {
     const matchCategoria =
@@ -82,27 +70,37 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-green-50">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="pt-16 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center py-20">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Descubre quién{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                emprende
-              </span>{" "}
-              en Medellín
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Conecta con emprendedores locales, descubre negocios únicos y
-              apoya el crecimiento de tu región.
-            </p>
-            <button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg rounded-lg font-semibold transition-all hover:scale-105">
-              Explorar emprendimientos
-            </button>
-          </div>
-        </div>
-      </section>
+<section className="pt-16 pb-20 px-4 sm:px-6 lg:px-8">
+  <div className="max-w-7xl mx-auto">
+    <div className="text-center py-16">
+      {/* Imagen tipo logo/banner */}
+      <img
+        src="/social.png"
+        alt="Banner Yo sé quién, emprende"
+        className="mx-auto mb-8 w-40 sm:w-48 md:w-56"
+      />
+
+      <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Descubre quién{" "}
+        <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          emprende
+        </span>{" "}
+        en Medellín
+      </h1>
+      <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+        Conecta con emprendedores locales, descubre negocios únicos y
+        apoya el crecimiento de tu región.
+      </p>
+      <button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg rounded-lg font-semibold transition-all hover:scale-105">
+        Explorar emprendimientos
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
       <EstadisticasDestacadas />
       <Filtros
         categoriaFiltro={categoriaFiltro}
@@ -110,9 +108,15 @@ export default function Home() {
         ubicacionFiltro={ubicacionFiltro}
         setUbicacionFiltro={setUbicacionFiltro}
       />
-      <ListaEmprendimientos
-        emprendimientosFiltrados={emprendimientosFiltrados}
-      />
+
+      {loading ? (
+        <div className="text-center py-12">Cargando emprendimientos...</div>
+      ) : error ? (
+        <div className="text-center py-12 text-red-600">{error}</div>
+      ) : (
+        <ListaEmprendimientos emprendimientosFiltrados={emprendimientosFiltrados} />
+      )}
+
       <Footer />
     </div>
   );
